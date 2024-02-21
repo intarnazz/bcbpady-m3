@@ -18,6 +18,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\File\FileController;
 
 Route::post("/registration", [UserController::class, "reg"]);
+Route::get("/user", [UserController::class, "get"]);
 Route::post("/authorization", [UserController::class, "login"]);
 Route::get("/logout", [UserController::class, "logout"]);
 Route::post("/files", [FileController::class, "add"]);

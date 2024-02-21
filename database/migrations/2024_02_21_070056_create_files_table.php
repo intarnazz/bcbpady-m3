@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id('file_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('file');
+            $table->string('pash');
+            $table->string('name');
             $table->timestamps();
         });
     }

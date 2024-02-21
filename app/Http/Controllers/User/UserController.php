@@ -130,4 +130,27 @@ class UserController extends Controller
     ];
     return response()->json($res)->setStatusCode(200);
   }
+  public function get(Request $request)
+  {
+    $res = [
+      "success" => false,
+      "message" => "Login failed",
+    ];
+
+    $token = $request->header("Authorization");
+    $token = str_replace("Bearer ", "", $token);
+    $user = User::all()
+      ->where("remember_token", $token)
+      ->first();
+    if (!$user) {
+      return response()->json($res)->setStatusCode(400);
+    }
+
+    $res = [
+      "success" => true,
+      "message" => "Success",
+      "user" => $user
+    ];
+    return response()->json($res)->setStatusCode(200);
+  }
 }
