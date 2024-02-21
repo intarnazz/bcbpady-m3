@@ -26,7 +26,7 @@ class FileController extends Controller
       ->where("email", $request->email)
       ->where("password", $request->password)
       ->first();
-    return response()->json($token)->setStatusCode(200);
+    // return response()->json($token)->setStatusCode(200);
     if (!$user) {
       return response()->json($res)->setStatusCode(400);
     }
